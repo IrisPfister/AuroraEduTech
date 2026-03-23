@@ -1,4 +1,4 @@
-<h1 align="center">🏫 SisGESC — Sistema de Gestão Escolar</h1>
+<h1 align="center">🏫 AuroraEduTech — Sistema de Gestão Escolar</h1>
 
 <p align="center">
 Projeto acadêmico desenvolvido para a disciplina de <b>Banco de Dados</b><br>
@@ -10,7 +10,7 @@ ERP voltado para <b>escolas de Ensino Fundamental I (1º ao 5º ano)</b>
 <h2>🎯 Objetivo do Projeto</h2>
 
 <p>
-O <b>SisGESC</b> é um projeto acadêmico que tem como objetivo projetar a arquitetura de um
+O <b>AuroraEduTech</b> é um projeto acadêmico que tem como objetivo projetar a arquitetura de um
 <b>ERP (Enterprise Resource Planning)</b> para gestão escolar.
 </p>
 
@@ -319,7 +319,7 @@ Este repositório será atualizado continuamente conforme o avanço do projeto.
 <h2>💡 Observação</h2>
 
 <p>
-O SisGESC representa a construção conceitual do <b>"cérebro digital"</b> de uma instituição escolar.
+O AuroraEduTech representa a construção conceitual do <b>"cérebro digital"</b> de uma instituição escolar.
 </p>
 
 <p>
