@@ -1,332 +1,241 @@
-<h1 align="center">🏫 AuroraEduTech — Sistema de Gestão Escolar</h1>
+# 🏫 AuroraEduTech — Sistema de Gestão Escolar
 
 <p align="center">
-Projeto acadêmico desenvolvido para a disciplina de <b>Banco de Dados</b><br>
-ERP voltado para <b>escolas de Ensino Fundamental I (1º ao 5º ano)</b>
+  Projeto acadêmico desenvolvido para a disciplina de <b>Banco de Dados</b><br>
+  ERP voltado para <b>escolas de Ensino Fundamental I (1º ao 5º ano)</b>
 </p>
 
-<hr>
-
-<h2>🎯 Objetivo do Projeto</h2>
-
-<p>
-O <b>AuroraEduTech</b> é um projeto acadêmico que tem como objetivo projetar a arquitetura de um
-<b>ERP (Enterprise Resource Planning)</b> para gestão escolar.
+<p align="center">
+  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow" />
+  <img src="https://img.shields.io/badge/banco-MySQL-blue" />
+  <img src="https://img.shields.io/badge/escola-Fundamental%20I-green" />
+  <img src="https://img.shields.io/badge/módulos-3-orange" />
 </p>
 
-<p>
-O sistema foi pensado para atender escolas de <b>Ensino Fundamental I (1º ao 5º ano)</b>,
-integrando processos acadêmicos, financeiros e administrativos em uma única plataforma.
-</p>
+---
 
-<p>
-Além da modelagem tradicional de banco de dados, o projeto também explora a evolução dos dados
-desde o nível operacional até a geração de análises estratégicas e modelos preditivos.
-</p>
+## 🎯 Objetivo do Projeto
 
-<hr>
+O **AuroraEduTech** é um projeto acadêmico que tem como objetivo projetar a arquitetura de um **ERP (Enterprise Resource Planning)** para gestão escolar.
 
-<h2>🧠 Arquitetura de Dados do Projeto</h2>
+O sistema foi pensado para atender escolas de **Ensino Fundamental I (1º ao 5º ano)**, integrando processos acadêmicos, financeiros e administrativos em uma única plataforma.
 
-<p>O projeto segue três níveis de utilização dos dados:</p>
+Além da modelagem tradicional de banco de dados, o projeto também explora a evolução dos dados desde o nível operacional até a geração de análises estratégicas e modelos preditivos.
 
-<h3>📌 OLTP — Processamento Operacional</h3>
+---
 
-<p>Representa os dados capturados no dia a dia da escola.</p>
+## 🧠 Arquitetura de Dados
 
-<ul>
-<li>Registro de presença dos alunos</li>
-<li>Notas de avaliações</li>
-<li>Pagamento de mensalidades</li>
-<li>Cadastro de funcionários</li>
-<li>Registro de ponto</li>
-</ul>
+O projeto segue três níveis de utilização dos dados:
 
-<p>Esses dados representam o nível <b>granular</b> do sistema.</p>
+### 📌 OLTP — Processamento Operacional
+Representa os dados capturados no dia a dia da escola.
+- Registro de presença dos alunos
+- Notas de avaliações
+- Pagamento de mensalidades
+- Cadastro de funcionários
+- Registro de ponto
 
-<h3>📊 OLAP — Informação Analítica</h3>
+### 📊 OLAP — Informação Analítica
+Transformação dos dados operacionais em informações estratégicas.
+- Média de desempenho por disciplina
+- Taxa de inadimplência
+- Frequência média dos alunos
+- Custo operacional da escola
+- Participação em atividades extracurriculares
 
-<p>Transformação dos dados operacionais em informações estratégicas.</p>
+### 🤖 IA — Análise Preditiva
+Com base no histórico de dados, o sistema poderá futuramente alimentar modelos de inteligência artificial.
+- Probabilidade de evasão escolar
+- Previsão de inadimplência
+- Identificação de alunos com risco de baixo desempenho
+- Previsão de demanda de atividades extracurriculares
 
-<ul>
-<li>Média de desempenho por disciplina</li>
-<li>Taxa de inadimplência</li>
-<li>Frequência média dos alunos</li>
-<li>Custo operacional da escola</li>
-<li>Participação em atividades extracurriculares</li>
-</ul>
+---
 
-<h3>🤖 IA — Análise Preditiva</h3>
+## 🏛 Módulos do ERP
 
-<p>Com base no histórico de dados, o sistema poderá futuramente alimentar modelos de inteligência artificial.</p>
+### 📚 Módulo Acadêmico
+Responsável pela gestão pedagógica da escola.
 
-<ul>
-<li>Probabilidade de evasão escolar</li>
-<li>Previsão de inadimplência</li>
-<li>Identificação de alunos com risco de baixo desempenho</li>
-<li>Previsão de demanda de atividades extracurriculares</li>
-</ul>
+**Entidades principais:** Alunos, Professores, Turmas, Séries (1º ao 5º ano), Disciplinas, Matrículas, Avaliações, Frequência
 
-<hr>
+**Dados armazenados:**
+- Notas das avaliações por atividade
+- Presença por aula
+- Histórico escolar
+- Participação em atividades extracurriculares
 
-<h2>🏛 Estrutura do ERP SisGESC</h2>
+---
 
-<p>O sistema foi dividido em três módulos principais.</p>
+### 💰 Módulo Financeiro
+Responsável pelo controle financeiro da instituição.
 
-<h3>📚 Módulo Acadêmico</h3>
+**Entidades principais:** Mensalidades, Parcelas, Pagamentos, Contratos Financeiros, Eventos Escolares
 
-<p>Responsável pela gestão pedagógica da escola.</p>
+**Dados armazenados:**
+- Valor da mensalidade e data de vencimento
+- Status de pagamento por parcela
+- Controle de inadimplência
+- Custos de eventos
 
-<b>Principais entidades:</b>
+**Eventos escolares considerados:**
+- Festa Junina
+- Dia das Mães / Dia dos Pais
+- Formatura do 5º ano
+- Passeios pedagógicos
 
-<ul>
-<li>Alunos</li>
-<li>Professores</li>
-<li>Turmas</li>
-<li>Séries (1º ao 5º ano)</li>
-<li>Disciplinas</li>
-<li>Matrículas</li>
-<li>Avaliações</li>
-<li>Frequência</li>
-</ul>
+**Integração com RH:**
+- Folha de pagamento
+- PLR e benefícios
 
-<b>Dados armazenados:</b>
+---
 
-<ul>
-<li>Notas das avaliações</li>
-<li>Presença dos alunos</li>
-<li>Histórico escolar</li>
-<li>Participação em atividades extracurriculares</li>
-</ul>
+### 👩‍💼 Módulo de Recursos Humanos
+Responsável pela gestão dos funcionários da escola.
 
-<hr>
+**Entidades principais:** Funcionários, Cargos, Contratos, Histórico de Salários, Histórico de Cargos, Folha de Pagamento
 
-<h3>💰 Módulo Financeiro</h3>
+**Dados armazenados:**
+- Dados cadastrais e documentação legal
+- Cargo e jornada de trabalho
+- Registro de ponto e ausências
+- Habilidades extracurriculares (Ballet, Robótica, Jazz, Judô, etc.)
 
-<p>Responsável pelo controle financeiro da instituição.</p>
+---
 
-<b>Principais entidades:</b>
+## 🗄️ Estrutura do Banco de Dados
 
-<ul>
-<li>Mensalidades</li>
-<li>Parcelas</li>
-<li>Pagamentos</li>
-<li>Eventos escolares</li>
-<li>Passeios pedagógicos</li>
-<li>Uniformes</li>
-<li>Livros didáticos</li>
-</ul>
+O schema conta com **47 tabelas**, organizadas nos três módulos do ERP, com triggers para garantia de integridade de negócio.
 
-<b>Exemplos de dados armazenados:</b>
+### Principais tabelas
 
-<ul>
-<li>Valor da mensalidade</li>
-<li>Data de vencimento</li>
-<li>Status de pagamento</li>
-<li>Controle de inadimplência</li>
-<li>Custos de eventos</li>
-</ul>
+| Módulo | Tabelas |
+|--------|---------|
+| Acadêmico | `tb_aluno`, `tb_turma`, `tb_matricula`, `tb_grade_curricular`, `tb_horario_aula`, `tb_presenca_aluno`, `tb_atividade_professor`, `tb_nota_atividade`, `tb_boletim` |
+| Financeiro | `tb_contrato_financeiro`, `tb_pagamento`, `tb_status_pagamento`, `tb_evento_escolar`, `tb_calendario_letivo` |
+| RH | `tb_funcionario`, `tb_professor`, `tb_contrato`, `tb_historico_cargo`, `tb_historico_salario`, `tb_folha_pagamento`, `tb_verba_folha` |
+| Compartilhado | `tb_pessoa`, `tb_email`, `tb_telefone`, `tb_endereco`, `tb_responsavel`, `tb_ano_letivo` |
+| Evasão | `tb_alerta_evasao`, `tb_tipo_risco_evasao`, `tb_nivel_risco_evasao`, `tb_status_alerta` |
+
+### Triggers implementados (20 no total)
+
+| Grupo | Tabela | Regra |
+|-------|--------|-------|
+| 1 | `tb_contrato` | Funcionário ativo; sem sobreposição de períodos; consistência status × data_fim |
+| 2 | `tb_historico_cargo` | Cargo ativo; datas dentro do contrato; sem sobreposição |
+| 3 | `tb_historico_salario` | Datas dentro do contrato; sem sobreposição |
+| 4 | `tb_matricula` | Capacidade máxima da turma (RN015) |
+| 5 | `tb_ano_letivo` | Apenas um ano letivo ativo por vez |
+| 6 | `tb_email` | Único e-mail principal por pessoa |
+| 7 | `tb_telefone` | Único telefone principal por pessoa |
+| 8 | `tb_responsavel_aluno` | Único responsável principal por aluno |
+| 9 | `tb_presenca_aluno` | Horário pertence à turma da matrícula |
+| 10 | `tb_nota_atividade` | Atividade pertence à turma da matrícula |
 
-<b>Eventos escolares considerados:</b>
+---
 
-<ul>
-<li>Festa Junina</li>
-<li>Dia das Mães</li>
-<li>Dia dos Pais</li>
-<li>Formatura do 5º ano</li>
-<li>Passeios pedagógicos</li>
-</ul>
+## 📊 Granularidade dos Dados
 
-<p>O módulo financeiro também se integra com o RH para:</p>
+Durante a modelagem foi definido o nível de detalhamento necessário para análises futuras:
 
-<ul>
-<li>Folha de pagamento</li>
-<li>PLR</li>
-<li>Benefícios</li>
-<li>Dados bancários</li>
-</ul>
+- Frequência registrada **por aula**
+- Notas registradas **por atividade**
+- Pagamentos registrados **por parcela**
 
-<hr>
+Esse nível de granularidade permite análises mais precisas no OLAP e alimenta os modelos preditivos de IA.
 
-<h3>👩‍💼 Módulo de Recursos Humanos</h3>
+---
 
-<p>Responsável pela gestão dos funcionários da escola.</p>
+## 📏 Arquitetura ANSI-SPARC
 
-<b>Principais entidades:</b>
+| Nível | Descrição |
+|-------|-----------|
+| **Conceitual** | Relacionamento entre entidades (MER) |
+| **Lógico** | Estrutura normalizada do banco de dados |
+| **Externo** | Visões específicas por área: Coordenação, Direção, Financeiro |
 
-<ul>
-<li>Funcionários</li>
-<li>Funções</li>
-<li>Controle de ponto</li>
-<li>Ausências</li>
-<li>Férias</li>
-<li>Habilidades extras</li>
-</ul>
+---
 
-<b>Dados armazenados:</b>
+## 📂 Estrutura do Repositório
 
-<ul>
-<li>Dados cadastrais</li>
-<li>Documentação legal</li>
-<li>Cargo / função</li>
-<li>Jornada de trabalho</li>
-<li>Registro de ponto</li>
-<li>Dados bancários</li>
-</ul>
+```
+auroraEduTech/
+├── schema/
+│   ├── ddl_aurora_edutech.sql       # Criação das tabelas e constraints
+│   └── triggers_aurora_edutech.sql  # 20 triggers de regras de negócio
+├── seed/
+│   └── seed_aurora_edutech.sql      # Carga de dados (idempotente)
+├── docs/
+│   ├── dicionario_de_dados.md       # Dicionário de dados
+│   └── regras_de_negocio.md         # Regras de negócio documentadas
+└── README.md
+```
 
-<p>
-Uma característica importante no <b>Ensino Fundamental I</b> é o registro de habilidades
-extracurriculares dos funcionários.
-</p>
+---
 
-<b>Exemplos:</b>
+## 🚀 Como executar
 
-<ul>
-<li>Ballet</li>
-<li>Robótica</li>
-<li>Jazz</li>
-<li>Judô</li>
-</ul>
+```sql
+-- 1. Criar o banco
+CREATE DATABASE aurora_edutech;
+USE aurora_edutech;
 
-<hr>
+-- 2. Executar o DDL (tabelas + triggers)
+SOURCE schema/ddl_aurora_edutech.sql;
+SOURCE schema/triggers_aurora_edutech.sql;
 
-<h2>🔄 Modelagem de Processos</h2>
+-- 3. Executar o seed de dados
+SOURCE seed/seed_aurora_edutech.sql;
 
-<p>
-O projeto inclui o mapeamento dos principais processos da gestão escolar
-por meio de <b>fluxogramas de processos</b>.
-</p>
+-- 4. Verificar carga
+SELECT table_name AS tabela, table_rows AS registros
+FROM information_schema.tables
+WHERE table_schema = 'aurora_edutech'
+ORDER BY table_name;
+```
 
-<p>Alguns processos modelados:</p>
+> **Idempotência:** o script de seed usa `INSERT IGNORE` com PKs explícitas. Executá-lo mais de uma vez não duplica registros.
 
-<ul>
-<li>Matrícula de alunos</li>
-<li>Gestão acadêmica durante o ano letivo</li>
-<li>Controle financeiro de mensalidades</li>
-<li>Organização de eventos escolares</li>
-<li>Gestão de funcionários</li>
-<li>Controle de férias e ausências</li>
-</ul>
+---
 
-<p>Os fluxogramas estão sendo desenvolvidos utilizando <b>Draw.io</b>.</p>
+## 📌 Etapas do Projeto
 
-<hr>
+- [x] Levantamento de requisitos
+- [x] Modelagem de processos
+- [x] Identificação das entidades
+- [x] Definição de regras de negócio
+- [x] Dicionário de dados
+- [x] Modelagem conceitual
+- [x] Modelagem lógica (DDL)
+- [x] Triggers de integridade
+- [x] Script de carga (DML idempotente)
+- [ ] Preparação para análise OLAP
+- [ ] Definição de perguntas para IA
+- [ ] Views por módulo (ANSI-SPARC nível externo)
 
-<h2>📊 Granularidade dos Dados</h2>
+---
 
-<p>Durante a modelagem discutimos o nível de detalhamento necessário para análises futuras.</p>
+## 👥 Organização do Grupo
 
-<ul>
-<li>Frequência registrada <b>por aula</b></li>
-<li>Notas registradas <b>por atividade</b></li>
-<li>Pagamentos registrados <b>por parcela</b></li>
-</ul>
+O grupo foi dividido em três frentes, cada uma responsável por entidades, regras de negócio, dados operacionais e indicadores analíticos do seu módulo:
 
-<p>Esse nível de detalhamento permite análises mais precisas no futuro.</p>
+| Frente | Responsabilidade |
+|--------|-----------------|
+| 📚 Acadêmico | Alunos, turmas, notas, frequência, boletins |
+| 💰 Financeiro | Mensalidades, pagamentos, eventos, contratos |
+| 👩‍💼 Recursos Humanos | Funcionários, contratos, folha, cargos |
 
-<hr>
+---
 
-<h2>📏 Arquitetura ANSI-SPARC</h2>
+## 💡 Observação
 
-<p>A modelagem considera três níveis de abstração:</p>
+O AuroraEduTech representa a construção conceitual do **"cérebro digital"** de uma instituição escolar.
 
-<ul>
-<li><b>Nível Conceitual</b> — relacionamento entre entidades</li>
-<li><b>Nível Lógico</b> — estrutura normalizada do banco</li>
-<li><b>Nível Externo</b> — visões específicas para cada área da escola</li>
-</ul>
+A qualidade da modelagem de dados determina diretamente a qualidade das informações analíticas e previsões futuras.
 
-<p>Exemplos de visões:</p>
+> **Dados mal estruturados geram decisões equivocadas.**
 
-<ul>
-<li>Coordenação pedagógica</li>
-<li>Direção</li>
-<li>Financeiro</li>
-</ul>
+---
 
-<hr>
-
-<h2>📌 Etapas do Projeto</h2>
-
-<ol>
-<li>Levantamento de requisitos</li>
-<li>Modelagem de processos</li>
-<li>Identificação das entidades</li>
-<li>Definição de regras de negócio</li>
-<li>Dicionário de dados</li>
-<li>Modelagem conceitual</li>
-<li>Modelagem lógica</li>
-<li>Preparação para análise OLAP</li>
-<li>Definição de perguntas para IA</li>
-</ol>
-
-<hr>
-
-<h2>👥 Organização do Trabalho</h2>
-
-<p>O grupo foi dividido em três frentes:</p>
-
-<ul>
-<li>📚 Acadêmico</li>
-<li>💰 Financeiro</li>
-<li>👩‍💼 Recursos Humanos</li>
-</ul>
-
-<p>Cada equipe será responsável por definir:</p>
-
-<ul>
-<li>Entidades</li>
-<li>Regras de negócio</li>
-<li>Dados operacionais</li>
-<li>Indicadores analíticos</li>
-</ul>
-
-<hr>
-
-<h2>📈 Evolução do Projeto</h2>
-
-<p>
-Este repositório será atualizado continuamente conforme o avanço do projeto.
-</p>
-
-<p>Serão adicionados:</p>
-
-<ul>
-<li>Diagramas de processos</li>
-<li>Modelos conceituais</li>
-<li>Modelos lógicos</li>
-<li>Dicionário de dados</li>
-<li>Regras de negócio</li>
-<li>Documentação técnica</li>
-</ul>
-
-<hr>
-
-<h2>🚧 Status do Projeto</h2>
-
-<p><b>🟡 Em desenvolvimento</b></p>
-
-<p>Atualmente estamos na fase de:</p>
-
-<ul>
-<li>Levantamento de requisitos</li>
-<li>Modelagem de processos</li>
-<li>Definição inicial das entidades</li>
-</ul>
-
-<hr>
-
-<h2>💡 Observação</h2>
-
-<p>
-O AuroraEduTech representa a construção conceitual do <b>"cérebro digital"</b> de uma instituição escolar.
-</p>
-
-<p>
-A qualidade da modelagem de dados determina diretamente a qualidade das
-informações analíticas e previsões futuras.
-</p>
-
-<p>
-<b>Dados mal estruturados geram decisões equivocadas.</b>
-</p>
+<p align="center">Desenvolvido para a disciplina de Banco de Dados</p>
