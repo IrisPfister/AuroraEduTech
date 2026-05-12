@@ -1,14 +1,3 @@
--- ═══════════════════════════════════════════════════════════════════════════
--- SCRIPT DML — Aurora EduTech v06
--- Carga de Dados Operacionais — IDEMPOTENTE (INSERT IGNORE)
---
--- Estratégia de idempotência:
---   • INSERT IGNORE → ignora silenciosamente duplicatas (UNIQUE ou PK)
---   • Dados com AUTO_INCREMENT usam INSERT IGNORE sem especificar PK,
---     mas com valores únicos nos campos com UNIQUE INDEX para garantir
---     que reexecuções não dupliquem registros.
---   • Onde a PK é composta (sem AUTO_INCREMENT), INSERT IGNORE protege
---     diretamente pela chave primária.
 
 -- 1. tb_tipo_escola_anterior
 -- ───────────────────────────────────────────────────────────────────────────
