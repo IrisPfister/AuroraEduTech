@@ -276,4 +276,4 @@ O AuroraEduTech representa a construção conceitual do **"cérebro digital"** d
 
 ---
 
-<p align="center">Desenvolvido para a disciplina de Banco de Dados</p><img width="1172" height="608" alt="image" src="https://github.com/user-attachments/assets/0c1d7a7c-900f-41e7-99ac-bc5711c831df" />
+<p align="center">Desenvolvido para a disciplina de Banco de Dados</p>
