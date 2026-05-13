@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow" />
+  <img src="https://img.shields.io/badge/status-concluido-green" />
   <img src="https://img.shields.io/badge/banco-MySQL-blue" />
   <img src="https://img.shields.io/badge/escola-Fundamental%20I-green" />
   <img src="https://img.shields.io/badge/módulos-3-orange" />
@@ -16,20 +16,15 @@
 
 ## 🎯 Objetivo do Projeto
 
-O **AuroraEduTech** é um projeto acadêmico que tem como objetivo projetar a arquitetura de um **ERP (Enterprise Resource Planning)** para gestão escolar.
+O **AuroraEduTech** é um projeto acadêmico que tem como objetivo projetar a arquitetura de um **ERP (Enterprise Resource Planning)** para gestão escolar, atendendo escolas de **Ensino Fundamental I (1º ao 5º ano)** e integrando processos acadêmicos, financeiros e administrativos em uma única plataforma.
 
-O sistema foi pensado para atender escolas de **Ensino Fundamental I (1º ao 5º ano)**, integrando processos acadêmicos, financeiros e administrativos em uma única plataforma.
-
-Além da modelagem tradicional de banco de dados, o projeto também explora a evolução dos dados desde o nível operacional até a geração de análises estratégicas e modelos preditivos.
+Além da modelagem tradicional de banco de dados, o projeto explora a evolução dos dados desde o nível operacional até a geração de análises estratégicas e modelos preditivos.
 
 ---
 
 ## 🧠 Arquitetura de Dados
 
-O projeto segue três níveis de utilização dos dados:
-
 ### 📌 OLTP — Processamento Operacional
-Representa os dados capturados no dia a dia da escola.
 - Registro de presença dos alunos
 - Notas de avaliações
 - Pagamento de mensalidades
@@ -37,7 +32,6 @@ Representa os dados capturados no dia a dia da escola.
 - Registro de ponto
 
 ### 📊 OLAP — Informação Analítica
-Transformação dos dados operacionais em informações estratégicas.
 - Média de desempenho por disciplina
 - Taxa de inadimplência
 - Frequência média dos alunos
@@ -45,7 +39,6 @@ Transformação dos dados operacionais em informações estratégicas.
 - Participação em atividades extracurriculares
 
 ### 🤖 IA — Análise Preditiva
-Com base no histórico de dados, o sistema poderá futuramente alimentar modelos de inteligência artificial.
 - Probabilidade de evasão escolar
 - Previsão de inadimplência
 - Identificação de alunos com risco de baixo desempenho
@@ -56,57 +49,31 @@ Com base no histórico de dados, o sistema poderá futuramente alimentar modelos
 ## 🏛 Módulos do ERP
 
 ### 📚 Módulo Acadêmico
-Responsável pela gestão pedagógica da escola.
+**Entidades:** `tb_aluno`, `tb_turma`, `tb_matricula`, `tb_grade_curricular`, `tb_horario_aula`, `tb_presenca_aluno`, `tb_atividade_professor`, `tb_nota_atividade`, `tb_boletim`
 
-**Entidades principais:** Alunos, Professores, Turmas, Séries (1º ao 5º ano), Disciplinas, Matrículas, Avaliações, Frequência
-
-**Dados armazenados:**
-- Notas das avaliações por atividade
-- Presença por aula
-- Histórico escolar
-- Participação em atividades extracurriculares
+**Dados armazenados:** notas por atividade, presença por aula, histórico escolar, participação extracurricular.
 
 ---
 
 ### 💰 Módulo Financeiro
-Responsável pelo controle financeiro da instituição.
+**Entidades:** `tb_contrato_financeiro`, `tb_pagamento`, `tb_status_pagamento`, `tb_evento_escolar`, `tb_calendario_letivo`
 
-**Entidades principais:** Mensalidades, Parcelas, Pagamentos, Contratos Financeiros, Eventos Escolares
+**Dados armazenados:** valor e vencimento de mensalidades, status de pagamento por parcela, controle de inadimplência, custos de eventos.
 
-**Dados armazenados:**
-- Valor da mensalidade e data de vencimento
-- Status de pagamento por parcela
-- Controle de inadimplência
-- Custos de eventos
-
-**Eventos escolares considerados:**
-- Festa Junina
-- Dia das Mães / Dia dos Pais
-- Formatura do 5º ano
-- Passeios pedagógicos
-
-**Integração com RH:**
-- Folha de pagamento
-- PLR e benefícios
+**Eventos considerados:** Festa Junina, Dia das Mães/Pais, Formatura do 5º ano, Passeios pedagógicos.
 
 ---
 
 ### 👩‍💼 Módulo de Recursos Humanos
-Responsável pela gestão dos funcionários da escola.
+**Entidades:** `tb_funcionario`, `tb_cargo`, `tb_contrato`, `tb_historico_salario`, `tb_historico_cargo`, `tb_folha_pagamento`, `tb_verba_folha`
 
-**Entidades principais:** Funcionários, Cargos, Contratos, Histórico de Salários, Histórico de Cargos, Folha de Pagamento
-
-**Dados armazenados:**
-- Dados cadastrais e documentação legal
-- Cargo e jornada de trabalho
-- Registro de ponto e ausências
-- Habilidades extracurriculares (Ballet, Robótica, Jazz, Judô, etc.)
+**Dados armazenados:** dados cadastrais, cargo e jornada, registro de ponto e ausências, habilidades extracurriculares.
 
 ---
 
 ## 🗄️ Estrutura do Banco de Dados
 
-O schema conta com **47 tabelas**, organizadas nos três módulos do ERP, com triggers para garantia de integridade de negócio.
+O schema conta com **47 tabelas** organizadas nos três módulos do ERP, com **20 triggers** de integridade de negócio e **8 índices** para otimização de consultas.
 
 ### Principais tabelas
 
@@ -133,17 +100,33 @@ O schema conta com **47 tabelas**, organizadas nos três módulos do ERP, com tr
 | 9 | `tb_presenca_aluno` | Horário pertence à turma da matrícula |
 | 10 | `tb_nota_atividade` | Atividade pertence à turma da matrícula |
 
+### Índices de performance (8 no total)
+
+| Índice | Tabela | Colunas |
+|--------|--------|---------|
+| `idx_pagamento_vencimento_status` | `tb_pagamento` | `data_vencimento`, `fk_status_pagamento` |
+| `idx_pagamento_ano_mes` | `tb_pagamento` | `ano_referencia`, `mes_referencia` |
+| `idx_folha_ano_mes_status` | `tb_folha_pagamento` | `ano`, `mes`, `status_folha` |
+| `idx_presenca_matricula_cal` | `tb_presenca_aluno` | `fk_matricula`, `fk_calendario_letivo` |
+| `idx_nota_atividade` | `tb_nota_atividade` | `fk_atividade_professor`, `valor_nota` |
+| `idx_boletim_matricula_bimestre` | `tb_boletim` | `fk_matricula`, `bimestre` |
+| `idx_matricula_turma_status` | `tb_matricula` | `fk_turma`, `fk_status_matricula` |
+| `idx_alerta_status_data` | `tb_alerta_evasao` | `fk_status_alerta`, `data_alerta` |
+
 ---
 
-## 📊 Granularidade dos Dados
+## 📊 Consultas e Procedures
 
-Durante a modelagem foi definido o nível de detalhamento necessário para análises futuras:
+O `runall.sql` inclui, além do DDL e triggers, as seguintes consultas analíticas e a stored procedure de pagamento:
 
-- Frequência registrada **por aula**
-- Notas registradas **por atividade**
-- Pagamentos registrados **por parcela**
-
-Esse nível de granularidade permite análises mais precisas no OLAP e alimenta os modelos preditivos de IA.
+| Consulta | Descrição |
+|----------|-----------|
+| Alunos ativos por turma | Lista todos os alunos com matrícula ativa |
+| Ocupação das turmas | Total de alunos vs. capacidade máxima (%) |
+| Alunos com média abaixo de 5 | Média ponderada por bimestre |
+| Inadimplência | Pagamentos em atraso com contato do responsável financeiro |
+| Frequência por turma | Ranking de presença com `RANK() OVER` |
+| `sp_registrar_pagamento` | Stored procedure transacional para baixa de mensalidade |
 
 ---
 
@@ -151,8 +134,8 @@ Esse nível de granularidade permite análises mais precisas no OLAP e alimenta 
 
 | Nível | Descrição |
 |-------|-----------|
-| **Conceitual** | Relacionamento entre entidades (MER) |
-| **Lógico** | Estrutura normalizada do banco de dados |
+| **Conceitual** | Relacionamento entre entidades — ver `DER.PNG` |
+| **Lógico** | Estrutura normalizada do banco de dados — ver `runall.sql` |
 | **Externo** | Visões específicas por área: Coordenação, Direção, Financeiro |
 
 ---
@@ -160,42 +143,39 @@ Esse nível de granularidade permite análises mais precisas no OLAP e alimenta 
 ## 📂 Estrutura do Repositório
 
 ```
-auroraEduTech/
-├── schema/
-│   ├── ddl_aurora_edutech.sql       # Criação das tabelas e constraints
-│   └── triggers_aurora_edutech.sql  # 20 triggers de regras de negócio
-├── seed/
-│   └── seed_aurora_edutech.sql      # Carga de dados (idempotente)
-├── docs/
-│   ├── dicionario_de_dados.md       # Dicionário de dados
-│   └── regras_de_negocio.md         # Regras de negócio documentadas
+AuroraEduTech/
+├── runall.sql                   # DDL completo: tabelas, FKs, triggers, índices, consultas e procedure
+├── seed-aurora.sql              # Carga de dados (idempotente via INSERT IGNORE)
+├── DER.PNG                      # Diagrama Entidade-Relacionamento
+├── Fluxograma-SisGESC.drawio.pdf  # Fluxograma do sistema
+├── Modelo estrela.pdf           # Modelo estrela para OLAP
+├── (1)95958159.pdf              # Documentação do trabalho
 └── README.md
 ```
+
+> **Nota:** O arquivo `runall.sql` consolida DDL, triggers, índices, consultas analíticas e a stored procedure em um único script de execução.
 
 ---
 
 ## 🚀 Como executar
 
 ```sql
--- 1. Criar o banco
-CREATE DATABASE aurora_edutech;
-USE aurora_edutech;
+-- 1. Criar o banco e executar tudo
+SOURCE runall.sql;
 
--- 2. Executar o DDL (tabelas + triggers)
-SOURCE schema/ddl_aurora_edutech.sql;
-SOURCE schema/triggers_aurora_edutech.sql;
+-- 2. Carregar os dados de exemplo
+SOURCE seed-aurora.sql;
 
--- 3. Executar o seed de dados
-SOURCE seed/seed_aurora_edutech.sql;
-
--- 4. Verificar carga
+-- 3. Verificar carga
 SELECT table_name AS tabela, table_rows AS registros
 FROM information_schema.tables
-WHERE table_schema = 'aurora_edutech'
+WHERE table_schema = 'sistema_aurora_edutech'
 ORDER BY table_name;
 ```
 
-> **Idempotência:** o script de seed usa `INSERT IGNORE` com PKs explícitas. Executá-lo mais de uma vez não duplica registros.
+> **Idempotência:** o `seed-aurora.sql` usa `INSERT IGNORE` com PKs explícitas — pode ser executado mais de uma vez sem duplicar registros.
+
+> **Limpeza:** o `runall.sql` contém blocos comentados com `TRUNCATE` e `DROP DATABASE` ao final, prontos para uso quando necessário.
 
 ---
 
@@ -206,19 +186,17 @@ ORDER BY table_name;
 - [x] Identificação das entidades
 - [x] Definição de regras de negócio
 - [x] Dicionário de dados
-- [x] Modelagem conceitual
+- [x] Modelagem conceitual (DER)
 - [x] Modelagem lógica (DDL)
-- [x] Triggers de integridade
+- [x] Triggers de integridade (20 triggers)
+- [x] Índices de performance (8 índices)
+- [x] Stored procedure de pagamento
+- [x] Consultas analíticas (OLAP)
 - [x] Script de carga (DML idempotente)
-- [ ] Preparação para análise OLAP
-- [ ] Definição de perguntas para IA
-- [ ] Views por módulo (ANSI-SPARC nível externo)
-
+- [x] Modelo estrela para OLAP
 ---
 
 ## 👥 Organização do Grupo
-
-O grupo foi dividido em três frentes, cada uma responsável por entidades, regras de negócio, dados operacionais e indicadores analíticos do seu módulo:
 
 | Frente | Responsabilidade |
 |--------|-----------------|
@@ -230,9 +208,7 @@ O grupo foi dividido em três frentes, cada uma responsável por entidades, regr
 
 ## 💡 Observação
 
-O AuroraEduTech representa a construção conceitual do **"cérebro digital"** de uma instituição escolar.
-
-A qualidade da modelagem de dados determina diretamente a qualidade das informações analíticas e previsões futuras.
+O AuroraEduTech representa a construção conceitual do **"cérebro digital"** de uma instituição escolar. A qualidade da modelagem de dados determina diretamente a qualidade das informações analíticas e previsões futuras.
 
 > **Dados mal estruturados geram decisões equivocadas.**
 
